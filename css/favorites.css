@@ -1,0 +1,196 @@
+/* Окно списка избранного */
+.favorite-block {
+  background-color: #1e1e2a;
+  border: 1px solid #323246;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 80vh; /* Ограничиваем высоту окна по экрану */
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Шапка окна избранного */
+.favorite-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2e2e40;
+}
+
+.favorite-header h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Прокручиваемый контейнер для карточек избранного */
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto; /* Включает прокрутку, если фильмов много */
+  padding-right: 6px;
+}
+
+/* Красивый скроллбар для списка */
+.favorites-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.favorites-list::-webkit-scrollbar-track {
+  background: #14141c;
+  border-radius: 4px;
+}
+
+.favorites-list::-webkit-scrollbar-thumb {
+  background: #3a3a52;
+  border-radius: 4px;
+}
+
+.favorites-list::-webkit-scrollbar-thumb:hover {
+  background: #ff512f;
+}
+
+/* Элемент фильма внутри списка избранного */
+.favorite-item {
+  background-color: #14141c;
+  border: 1px solid #2c2c3e;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.favorite-item-info h4 {
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.favorite-item-info span {
+  font-size: 0.85rem;
+  color: #ff7b54;
+}
+
+/* Сообщение, если в избранном пока пусто */
+.favorites-empty {
+  text-align: center;
+  color: #8888a0;
+  padding: 32px 16px;
+  font-size: 1rem;
+}
+
+/* Карточка фильма внутри окна «Избранное» */
+.favorite-film {
+  background-color: #14141c;
+  border: 1px solid #2c2c3e;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.favorite-film:hover {
+  border-color: #ff512f;
+  background-color: #181822;
+}
+
+/* Миниатюра постера */
+.favorite-film img {
+  width: 56px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #252536;
+  flex-shrink: 0;
+}
+
+/* Название фильма (занимает всё доступное место в центре) */
+.favorite-film h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Первый параграф — Жанр */
+.favorite-film p:nth-of-type(1) {
+  background-color: #2a2a3c;
+  color: #ff7b54;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Второй параграф — Оценка */
+.favorite-film p:nth-of-type(2) {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ff512f;
+  min-width: 36px;
+  text-align: center;
+}
+
+/* Кнопка «Удалить» */
+.favorite-film button {
+  background-color: rgba(255, 77, 79, 0.12);
+  color: #ff5c5c;
+  border: 1px solid rgba(255, 77, 79, 0.35);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.favorite-film button:hover {
+  background-color: #ff4d4f;
+  color: #ffffff;
+  border-color: #ff4d4f;
+}
+
+.favorite-film button:active {
+  transform: scale(0.96);
+}
+
+/* Адаптивность для узких экранов смартфонов */
+@media (max-width: 550px) {
+  .favorite-film {
+    flex-wrap: wrap;
+  }
+
+  .favorite-film button {
+    width: 100%;
+    margin-top: 4px;
+  }
+}
+
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 480px) {
+  .favorite-block {
+    padding: 18px;
+    max-height: 85vh;
+  }
+
+  .favorite-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

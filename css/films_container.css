@@ -1,0 +1,144 @@
+/* Сама карточка фильма */
+.film-info {
+    margin-top: 5px;
+    margin-inline: 10px;
+  background-color: #1e1e2a;
+  border: 1px solid #2e2e40;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 20px; /* Отступ снизу для футера */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.film-info:hover {
+  transform: translateY(-4px);
+  border-color: #ff512f;
+  box-shadow: 0 8px 24px rgba(255, 81, 47, 0.15);
+}
+
+/* Постер фильма (прилегает к краям карточки без отступов) */
+.film-poster {
+    margin-left: 20px;
+    margin-top: 10px;
+  width: 10%;
+  height: fit-content;
+  object-fit: cover;
+  display: block;
+  background-color: #252536;
+}
+
+.film-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.film-header a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #9e9eb3;
+  font-size: 24px;
+}
+
+/* Внутренние боковые отступы для всех текстовых элементов */
+.film-title,
+.film-genre,
+.film-description,
+.film-footer {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* Заголовок фильма */
+.film-title {
+  margin-top: 4px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+/* Бейдж жанра */
+.film-genre {
+  align-self: flex-start;
+  background-color: #2a2a3c;
+  color: #ff7b54;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* Описание фильма */
+.film-description {
+  font-size: 0.95rem;
+  color: #b8b8cc;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Нижняя панель с оценкой и кнопками */
+.film-footer {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid #2e2e40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Оценка прижимает кнопки к правому краю */
+.film-review {
+  font-size: 0.9rem;
+  color: #9e9eb3;
+  margin-right: auto;
+}
+
+.film-review strong {
+  color: #ff512f;
+  font-size: 1.05rem;
+}
+
+/* Общие стили кнопок в футере карточки */
+.film-footer button {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Кнопка «Редактировать» */
+.film-footer button[data-action="update"] {
+  background-color: #2a2a3c;
+  color: #ffffff;
+  border: 1px solid #3d3d56;
+}
+
+.film-footer button[data-action="update"]:hover {
+  background-color: #36364d;
+  border-color: #ff7b54;
+}
+
+/* Кнопка «Удалить» */
+.film-footer button[data-action="delete"] {
+  background-color: rgba(255, 77, 79, 0.12);
+  color: #ff5c5c;
+  border: 1px solid rgba(255, 77, 79, 0.35);
+}
+
+.film-footer button[data-action="delete"]:hover {
+  background-color: #ff4d4f;
+  color: #ffffff;
+  border-color: #ff4d4f;
+}
+
+.film-footer button:active {
+  transform: scale(0.96);
+}

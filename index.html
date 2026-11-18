@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог фильмов</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/select_section.css">
+    <link rel="stylesheet" href="./css/films_container.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/favorites.css">
+    <link rel="stylesheet" href="./css/add_film.css">
+</head>
+<body>
+    <header class="header-title">
+  <div class="header-container">
+    <h1>Каталог фильмов</h1>
+    <div class="header-actions">
+      <button class="header-btn btn-primary" data-action="addNewFilm">
+        Добавить фильм
+      </button>
+      <button class="header-btn btn-secondary" data-action="showFavorites">
+        Избранное
+      </button>
+    </div>
+  </div>
+    </header>
+
+
+    <section class="select-section" id="selectSection">
+        <input class="search-input" id="searchInput" type="text" placeholder="Поиск по названию...">
+        <select class="filter-select" id="filterSelect">
+          <option value="Все">Все</option>
+        </select>
+        <button class="reset-filter" data-action="reset">Сбросить фильтр</button>
+    </section>
+
+
+    <section class="films">
+        <div class="container" id="filmsContainer">
+
+        </div>
+        <p id="message"></p>
+    </section>
+
+
+    <section class="modal hidden" id="editModal">
+  <div class="changer-block">
+    <div class="modal-header">
+      <h2>Редактировать описание</h2>
+      <button class="modal-close" data-action="closeModal" aria-label="Закрыть">&times;</button>
+    </div>
+    
+    <textarea 
+      id="changeDescriptor" 
+      placeholder="Введите новое описание фильма..."
+      required
+    ></textarea>
+    
+    <div class="modal-actions">
+      <button class="modal-btn btn-cancel" data-action="closeModal">Отмена</button>
+      <button class="modal-btn btn-save" data-action="saveDescription">Сохранить</button>
+    </div>
+  </div>
+</section>
+
+
+<section class="modal hidden" id="favoritesWindow">
+  <div class="favorite-block">
+    <div class="favorite-header">
+      <h2>Избранное</h2>
+      <button class="modal-close" data-action="closeModal" aria-label="Закрыть">&times;</button>
+    </div>
+
+    <div class="favorites-list" id="favoritesList">
+      <!-- Сюда через JS будут добавляться избранные фильмы -->
+    </div>
+  </div>
+</section>
+
+
+<section class="modal hidden" id="addFilmModal">
+  <div class="form-block">
+    <div class="modal-header">
+      <h2>Добавить фильм</h2>
+      <button type="button" class="modal-close" data-action="closeModal" aria-label="Закрыть">&times;</button>
+    </div>
+
+    <form class="film-form" id="addFilmForm">
+      <div class="form-group">
+        <label for="filmTitle">Название фильма</label>
+        <input 
+          type="text" 
+          id="filmTitle" 
+          name="title" 
+          placeholder="Название..." 
+          required
+        >
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="filmGener">Жанр</label>
+          <input 
+            type="text" 
+            id="filmGener" 
+            name="gener" 
+            placeholder="Жанр..." 
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="filmReview">Оценка (1–10)</label>
+          <input 
+            type="number" 
+            id="filmReview" 
+            name="review" 
+            min="0" 
+            max="10" 
+            placeholder="Оценка..." 
+            required
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="filmPicture">Ссылка на постер</label>
+        <input 
+          type="file" 
+          id="filmPicture" 
+          name="picture" 
+          placeholder="Фото..."
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="filmDescription">Описание</label>
+        <textarea 
+          id="filmDescription" 
+          name="description" 
+          placeholder="Краткий сюжет фильма..." 
+          required
+        ></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="modal-btn btn-cancel" data-action="closeModal">Отмена</button>
+        <button type="submit" class="modal-btn btn-save">Добавить</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script src="./js/main.js" type="module"></script>
+</body>
+</html>

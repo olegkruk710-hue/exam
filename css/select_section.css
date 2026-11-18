@@ -1,0 +1,86 @@
+/* Контейнер панели поиска и фильтров */
+.select-section {
+  max-width: 100%;
+  margin: 24px 0;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Поле поиска и выпадающий список */
+.search-input,
+.filter-select {
+  background-color: #1e1e2a;
+  color: #ffffff;
+  border: 1px solid #323246;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Поле поиска занимает основное свободное место */
+.search-input {
+  flex: 1;
+  min-width: 240px;
+}
+
+.search-input::placeholder {
+  color: #8888a0;
+}
+
+/* Выпадающий список жанров */
+.filter-select {
+  min-width: 190px;
+  cursor: pointer;
+}
+
+/* Подсветка при клике или наведении */
+.search-input:focus,
+.filter-select:focus,
+.search-input:hover,
+.filter-select:hover {
+  border-color: #ff512f;
+  box-shadow: 0 0 0 3px rgba(255, 81, 47, 0.15);
+}
+
+/* Кнопка сброса фильтра */
+.reset-filter {
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.reset-filter:hover {
+  opacity: 0.9;
+}
+
+.reset-filter:active {
+  transform: scale(0.98);
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 600px) {
+  .select-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .search-input,
+  .filter-select,
+  .reset-filter {
+    width: 100%;
+  }
+}

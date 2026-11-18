@@ -1,0 +1,148 @@
+/* Затемненный фон на весь экран */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 10, 16, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* Класс для скрытия модального окна */
+.modal.hidden {
+  display: none;
+}
+
+/* Само всплывающее окно */
+.changer-block {
+  background-color: #1e1e2a;
+  border: 1px solid #323246;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 500px;
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Шапка модального окна */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Кнопка-крестик закрытия */
+.modal-close {
+  background: none;
+  border: none;
+  color: #8888a0;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #ff512f;
+}
+
+/* Текстовое поле для редактирования описания */
+#changeDescriptor {
+  width: 100%;
+  min-height: 140px;
+  background-color: #14141c;
+  color: #ffffff;
+  border: 1px solid #323246;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#changeDescriptor::placeholder {
+  color: #6e6e85;
+}
+
+#changeDescriptor:focus {
+  border-color: #ff512f;
+  box-shadow: 0 0 0 3px rgba(255, 81, 47, 0.15);
+}
+
+/* Нижняя панель с кнопками */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.modal-btn {
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Кнопка «Отмена» */
+.btn-cancel {
+  background-color: #2a2a3c;
+  color: #d0d0e0;
+  border: 1px solid #3d3d56;
+}
+
+.btn-cancel:hover {
+  background-color: #36364d;
+  color: #ffffff;
+}
+
+/* Кнопка «Сохранить» */
+.btn-save {
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  color: #ffffff;
+  border: none;
+}
+
+.btn-save:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.modal-btn:active {
+  transform: scale(0.98);
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 480px) {
+  .changer-block {
+    padding: 18px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .modal-btn {
+    width: 100%;
+  }
+}
